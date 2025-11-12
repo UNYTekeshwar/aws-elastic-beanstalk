@@ -75,6 +75,7 @@ app.get("/rest/getAllUsers", (req, res) => {
 
 app.get("/getUser", (req,res)=>{
     try{
+        const rest = [];
     const data = [{
         id: 1,
         firstName: "Phineas",
