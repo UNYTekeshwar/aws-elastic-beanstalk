@@ -18,14 +18,14 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Genrate Deployment Package
-        run: zip -r nodejs-app-build.zip .
+        run: zip -r aws-elastic-beanstalk-build.zip .
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v21
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: 'nodejs-app'
-          environment_name: 'nodejs-app-env'
+          application_name: 'aws-elastic-beanstalk'
+          environment_name: 'aws-elastic-beanstalk-env'
           version_label: ${{ github.sha }}
           region: us-east-1
           deployment_package: nodejs-app-build.zip
