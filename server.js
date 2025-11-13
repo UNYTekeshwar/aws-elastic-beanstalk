@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = 7000;
 const userData = require("./MOCK_DATA.json");
 const graphql = require("graphql")
 const { GraphQLObjectType, GraphQLSchema, GraphQLList, GraphQLID, GraphQLInt, GraphQLString } = graphql
@@ -72,6 +72,28 @@ app.use("/graphql", graphqlHTTP({
 app.get("/rest/getAllUsers", (req, res) => {
     res.send(userData)
    });
+
+app.get("/getUsersData", (req,res)=>{
+    try{
+    const data = [{
+        id: 1,
+        firstName: "Phineas",
+        lastName: "Franciottoi",
+        email: "pfranciottoi0@hostgator.com",
+        password: "y0pWrGzmDz"
+    }]
+    res.send({
+        status : 200,
+        data
+    })
+}catch(err){
+    console.log(err)
+    res.send({
+        status : 500,
+        message : "Internal Server Error"
+    })
+}
+})   
 
 app.listen(PORT, () => {
   console.log("Server running");
