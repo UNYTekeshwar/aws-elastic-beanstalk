@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = 7000;
+// const PORT = 7000;
 const userData = require("./MOCK_DATA.json");
 const graphql = require("graphql")
 const { GraphQLObjectType, GraphQLSchema, GraphQLList, GraphQLID, GraphQLInt, GraphQLString } = graphql
@@ -69,43 +69,33 @@ app.use("/graphql", graphqlHTTP({
   })
 );
 
-app.get("/rest/getAllUsers", (req, res) => {
-    res.send(userData)
-   });
-
-app.get("/getUsersData", (req,res)=>{
-    try{
-    const data = [{
-        id: 1,
-        firstName: "Phineas",
-        lastName: "Franciottoi",
-        email: "pfranciottoi0@hostgator.com",
-        password: "y0pWrGzmDz"
+app.get("/getUsersData", (req, res) => {
+  res.json({ ok: true, users: [
+    {
+      "id": 1,
+      "firstName": "Phineas",
+      "lastName": "Franciottoi",
+      "email": "pfranciottoi0@hostgator.com",
+      "password": "y0pWrGzmDz"
     },
     {
-        id: 2,
-        firstName: "Mikesl",
-        lastName: "Gregoli",
-        email: "mgregoli1@amazon.de",
-        password: "G0VfMCL"
+      "id": 2,
+      "firstName": "Mikel",
+      "lastName": "Gregoli",
+      "email": "mgregoli1@amazon.de",
+      "password": "G0VfMCL"
     },
     {
-        id: 3,
-        firstName: "Moira",
-        lastName: "Mazzilli",
-        email: "mmazzilli2@163.com",
-        password: "3GgdWoOfT"
-    }]
-    res.send(data)
-}catch(err){
-    console.log(err)
-    res.send({
-        status : 500,
-        message : "Internal Server Error"
-    })
-}
-})   
+      "id": 3,
+      "firstName": "Moira",
+      "lastName": "Mazzilli",
+      "email": "mmazzilli2@163.com",
+      "password": "3GgdWoOfT"
+    }
+  ] });
+});
 
-app.listen(PORT, () => {
-  console.log("Server running");
+const PORT =  6000; // IMPORTANT
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server is running on port ${PORT}`);
 });
