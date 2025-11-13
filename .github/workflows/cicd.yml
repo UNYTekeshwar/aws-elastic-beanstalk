@@ -18,7 +18,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Genrate Deployment Package
-        run: zip -r aws-elastic-beanstalk-build.zip .
+        run: zip -r aws-elastic-beanstalk.zip .
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v21
         with:
@@ -28,4 +28,4 @@ jobs:
           environment_name: 'aws-elastic-beanstalk-env'
           version_label: ${{ github.sha }}
           region: us-east-1
-          deployment_package: aws-elastic-beanstalk-build.zip
+          deployment_package: aws-elastic-beanstalk.zip
