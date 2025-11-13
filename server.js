@@ -73,7 +73,7 @@ app.get("/rest/getAllUsers", (req, res) => {
     res.send(userData)
    });
 
-app.get("/getUsers", (req,res)=>{
+app.get("/getUsersData", (req,res)=>{
     try{
     const data = [{
         id: 1,
