@@ -28,4 +28,4 @@ jobs:
           environment_name: 'aws-elastic-beanstalk-env'
           version_label: ${{ github.sha }}
           region: us-east-1
-          deployment_package: nodejs-app-build.zip
+          deployment_package: aws-elastic-beanstalk-build.zip
