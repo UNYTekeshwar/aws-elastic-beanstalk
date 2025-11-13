@@ -84,7 +84,7 @@ app.get("/getUsersData", (req,res)=>{
     },
     {
         id: 2,
-        firstName: "Mikel",
+        firstName: "Mikesl",
         lastName: "Gregoli",
         email: "mgregoli1@amazon.de",
         password: "G0VfMCL"
