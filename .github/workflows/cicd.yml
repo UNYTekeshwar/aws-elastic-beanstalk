@@ -27,5 +27,5 @@ jobs:
           application_name: 'aws-elastic-beanstalk'
           environment_name: 'Aws-elastic-beanstalk-env'
           version_label: ${{ github.sha }}
-          region: us-east-1
+          region: eu-north-1
           deployment_package: aws-elastic-beanstalk.zip
