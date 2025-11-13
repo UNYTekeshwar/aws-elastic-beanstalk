@@ -94,7 +94,7 @@ app.get("/getUsersData", (req,res)=>{
         firstName: "Moira",
         lastName: "Mazzilli",
         email: "mmazzilli2@163.com",
-        // password: "3GgdWoOfT"
+        password: "3GgdWoOfT"
     }]
     res.send({
         status : 200,
