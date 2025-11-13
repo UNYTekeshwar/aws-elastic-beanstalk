@@ -96,10 +96,7 @@ app.get("/getUsersData", (req,res)=>{
         email: "mmazzilli2@163.com",
         password: "3GgdWoOfT"
     }]
-    res.send({
-        status : 200,
-        data
-    })
+    res.send(data)
 }catch(err){
     console.log(err)
     res.send({
