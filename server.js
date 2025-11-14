@@ -1,11 +1,12 @@
 const express = require("express");
 const app = express();
-// const PORT = 7000;
+require('dotenv').config()
 const userData = require("./MOCK_DATA.json");
 const graphql = require("graphql")
 const { GraphQLObjectType, GraphQLSchema, GraphQLList, GraphQLID, GraphQLInt, GraphQLString } = graphql
 const { graphqlHTTP } = require("express-graphql")
-
+console.log(process.env.PORT);
+const PORT = process.env.PORT || 5000;
 const UserType = new GraphQLObjectType({
     name: "User",
     fields: () => ({
@@ -95,7 +96,6 @@ app.get("/getUsersData", (req, res) => {
   ] });
 });
 
-const PORT =  6000; // IMPORTANT
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server is running on port ${PORT}`);
 });
